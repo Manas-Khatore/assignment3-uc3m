@@ -253,3 +253,4 @@ CREATE TABLE Client_Lines (
 ) CLUSTER user_clust (username);
 
 CREATE INDEX ind_user on CLUSTER user_clust;
+CREATE INDEX idx_product ON posts(barCode, product);
