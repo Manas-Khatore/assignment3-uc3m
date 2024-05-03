@@ -99,7 +99,6 @@ CREATE TABLE Clients (
   CONSTRAINT ck_client CHECK (email is not null or mobile is not null) 
 );
 
-
 CREATE TABLE Posts (
   username   VARCHAR2(30),
   postdate   DATE,
@@ -115,7 +114,9 @@ CREATE TABLE Posts (
   CONSTRAINT fk_posts_references FOREIGN KEY(product,barcode) 
              REFERENCES References(product,barcode),
   CONSTRAINT D_postscore CHECK (score between 0 and 5)
-);
+) TABLESPACE TAB_16k;
+
+CREATE INDEX idx_score ON posts(score) TABLESPACE TAB_16k;
 
 CREATE TABLE AnonyPosts (
   postdate   DATE,
